@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light bg-light px-4">
+  <div class="d-flex flex-row">
+    <a class="navbar-brand" href="/">OpiskeluCMS</a>
+    <div>
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Etusivu</a>
+      </div>
+    </div>
+  </div>
+  <div>
+    {% if session.username %}
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ font_awesome.render_icon('fa-regular fa-user') }} {{ session.username
+        }}
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="/logout">Kirjaudu ulos</a></li>
+      </ul>
+    </div>
+    {% else %}
+    <ul class="nav">
+      <a class="nav-link" href="/login">Kirjaudu</a>
+    </ul>
+    {% endif %}
+    <!-- <ul>
+    {% if session.username %}
+    <li><span>Tervetuloa, {{ session.username }}</span></li>
+    <li><a href="/logout">Log Out</a> {% else %}</li>
+    <li><a href="/register">Register</a></li>
+    <li>
+      <a href="/login">Log In</a>
+    </li>
+    {% endif %}
+  </ul> -->
+  </div>
+</nav>
