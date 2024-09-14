@@ -14,6 +14,13 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/login", methods=["GET"])
+def login_form():
+    if "username" in session:
+        return redirect("/")
+    return render_template("login.html")
+
+
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]

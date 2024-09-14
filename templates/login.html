@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Kirjaudu sisään{% endblock %}</h1>
+{% endblock %} {% block content %}
+
+<form action="/login" method="POST">
+  <p>
+    Tunnus:<br />
+    <input type="text" name="username" />
+  </p>
+  <p>
+    Salasana:<br />
+    <input type="password" name="password" />
+  </p>
+  <input type="submit" class="btn btn-primary" value="Kirjaudu" />
+</form>
+{% endblock %}
